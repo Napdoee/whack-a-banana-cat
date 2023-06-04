@@ -1,0 +1,86 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Helvetica;
+}
+
+h1 {
+  font-size: 60px;
+  text-align: center;
+}
+
+.container {
+  width: 700px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: auto;
+  cursor: url(../img/palu1.png), grab;
+  /* cursor: grab; */
+}
+
+.container:active {
+  cursor: url(../img/palu2.png), grabbing;
+  /* cursor: grabbing; */
+}
+
+.soil {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+}
+
+.soil::after {
+  content: "";
+  display: block;
+  width: 200px;
+  height: 100px;
+  background: url(../img/soil.png) bottom center no-repeat;
+  background-size: 120%;
+  position: absolute;
+  bottom: -43px;
+}
+
+.mole {
+  width: 100%;
+  height: 100%;
+  background-image: url(../img/banana_cat.png);
+  background-size: 120%;
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  position: absolute;
+  top: 200px;
+  transition: top 0.2s;
+  z-index: 0;
+}
+
+.soil.show .mole {
+  top: 30px;
+}
+
+.start {
+  display: block;
+  padding: 8px 10px;
+  font-size: 18px;
+  margin: 20px auto;
+}
+
+.score {
+  font-size: 45px;
+  text-align: center;
+  margin: 5px auto;
+}
+
+.gameOver {
+  display: none;
+  color: rgb(222, 135, 135);
+  width: 100%;
+}
+
+.gameOver img {
+  display: block;
+  width: 30%;
+  height: 500px;
+  margin: auto;
+}
