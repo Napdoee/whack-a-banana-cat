@@ -4,23 +4,43 @@
   font-family: Helvetica;
 }
 
+body {
+  background-color: cadetblue;
+}
+
+section {
+  border-radius: 10px;
+  background-color: #efefef;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 700px;
+}
+
 h1 {
   font-size: 60px;
   text-align: center;
+  margin: 10px 10px 0;
 }
 
 .container {
-  width: 700px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   margin: auto;
-  cursor: url(../img/palu1.png), grab;
+  cursor: url(../img/palu1.png), -webkit-grab;
+  background-image: url(../img/d007f5bfb93dfe9a145eb28d3047f9c8.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center bottom;
+  padding: 20px;
+  border-radius: 10px;
   /* cursor: grab; */
 }
 
 .container:active {
-  cursor: url(../img/palu2.png), grabbing;
+  cursor: url(../img/palu2.png), -webkit-grabbing;
   /* cursor: grabbing; */
 }
 
@@ -62,7 +82,7 @@ h1 {
 .start {
   display: block;
   padding: 8px 10px;
-  font-size: 18px;
+  font-size: 20px;
   margin: 20px auto;
 }
 
@@ -81,6 +101,6 @@ h1 {
 .gameOver img {
   display: block;
   width: 30%;
-  height: 500px;
+  height: 300px;
   margin: auto;
 }

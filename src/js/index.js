@@ -6,12 +6,14 @@ const gameOverBoard = document.querySelector(".gameOver");
 
 const audio = new Audio("./src/audio/Banana-Cat-Crying-Meme.MP3");
 const audio2 = new Audio("./src/audio/Happy Happy - Cat Meme Song.mp3");
-audio.play();
 
 let showBefore;
 let gameOver;
 let score;
-let timer = 10000;
+
+let minLvl = 1000;
+let maxLvl = 1500;
+let gameTimer = 10000;
 
 function randomMole(soil) {
   let i = Math.floor(Math.random() * soil.length);
@@ -29,11 +31,13 @@ function randomNumber(min, max) {
 
 function showMole() {
   const sRandom = randomMole(soil);
-  const nRandom = randomNumber(500, 1000);
+  const nRandom = randomNumber(minLvl, maxLvl);
   sRandom.classList.add("show");
 
   setTimeout(() => {
     sRandom.classList.remove("show");
+    // audio.pause();
+    // audio.currentTime = 1;
     if (!gameOver) {
       showMole();
     }
@@ -54,7 +58,8 @@ function start() {
     container.style.display = "none";
     gameOverBoard.style.display = "block";
     audio2.play();
-  }, timer);
+    audio2.volume = 0.4;
+  }, gameTimer);
 }
 
 function whack() {
@@ -68,7 +73,7 @@ function whack() {
   setTimeout(() => {
     this.style.backgroundImage = "url(./src/img/banana_cat.png)";
     this.parentNode.classList.remove("show");
-  }, 500);
+  }, minLvl);
 }
 
 mole.forEach((m) => {
